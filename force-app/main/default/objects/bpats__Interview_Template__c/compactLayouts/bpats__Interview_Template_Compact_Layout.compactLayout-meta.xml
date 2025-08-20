@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Interview_Template_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>bpats__Priority__c</fields>
+    <fields>bpats__Is_Active__c</fields>
+    <fields>bpats__Feedback_Format__c</fields>
+    <label>Interview Template Compact Layout</label>
+</CompactLayout>

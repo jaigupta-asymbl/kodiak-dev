@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Inactive_Billing_Profile</fullName>
+    <active>true</active>
+    <description>Prevents selection of Inactive Billing Profiles on Job records</description>
+    <errorConditionFormula>AND(
+  NOT(ISBLANK(Billing_Profile__c)),
+  TEXT(Billing_Profile__r.Status__c) = &quot;Inactive&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Billing_Profile__c</errorDisplayField>
+    <errorMessage>You cannot select an Inactive Billing Profile for new Jobs. Please select an Active Billing Profile or reactivate the desired profile.</errorMessage>
+</ValidationRule>

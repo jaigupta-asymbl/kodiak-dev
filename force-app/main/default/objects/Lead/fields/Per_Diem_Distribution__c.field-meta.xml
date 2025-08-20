@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Per_Diem_Distribution__c</fullName>
+    <description>Used to help calculate quote - these are the days that the per diem applies to</description>
+    <label>Per Diem Distribution</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Per_Diem_Distribution</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Type__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Action Definition</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Create a Record</fullName>
+                <default>false</default>
+                <label>Create a Record</label>
+            </value>
+            <value>
+                <fullName>Flow</fullName>
+                <default>false</default>
+                <label>Flow</label>
+            </value>
+            <value>
+                <fullName>QuickAction</fullName>
+                <default>false</default>
+                <label>QuickAction</label>
+            </value>
+            <value>
+                <fullName>Send Email</fullName>
+                <default>false</default>
+                <label>Send Email</label>
+            </value>
+            <value>
+                <fullName>Lightning Web Component</fullName>
+                <default>false</default>
+                <label>Lightning Web Component</label>
+            </value>
+            <value>
+                <fullName>SMS</fullName>
+                <default>false</default>
+                <label>SMS</label>
+            </value>
+            <value>
+                <fullName>Lightning Component</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Lightning Component</label>
+            </value>
+            <value>
+                <fullName>Modal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Modal</label>
+            </value>
+            <value>
+                <fullName>Update a Record</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Update a Record</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

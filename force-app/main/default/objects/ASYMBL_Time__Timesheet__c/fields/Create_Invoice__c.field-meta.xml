@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Invoice__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked, triggers automatic invoice creation from timesheet data. Invoice will be created or updated based on placement and time period.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this box to create invoices from this timesheet. Invoices will be consolidated by account and time period according to billing profile settings.</inlineHelpText>
+    <label>Create Invoice</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

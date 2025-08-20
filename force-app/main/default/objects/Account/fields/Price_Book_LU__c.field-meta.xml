@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_Book_LU__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Lookup field to the price book associated with a customer</description>
+    <label>Price Book</label>
+    <referenceTo>Pricebook2</referenceTo>
+    <relationshipLabel>Customers</relationshipLabel>
+    <relationshipName>Customers</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

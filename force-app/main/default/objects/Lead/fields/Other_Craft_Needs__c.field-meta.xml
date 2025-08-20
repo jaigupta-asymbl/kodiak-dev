@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Craft_Needs__c</fullName>
+    <description>If &quot;Other&quot; is chosen in Craft Needs, what are the other crafts they need help with?</description>
+    <inlineHelpText>If &quot;Other&quot; is chosen in Craft Needs, what are the other crafts they need help with?</inlineHelpText>
+    <label>Other Craft Needs</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>TextArea</type>
+</CustomField>

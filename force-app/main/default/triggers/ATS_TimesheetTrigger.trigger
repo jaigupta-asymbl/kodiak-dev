@@ -1,0 +1,1 @@
+trigger ATS_TimesheetTrigger on ASYMBL_Time__Timesheet__c (before insert, after insert, before update, after update, before delete, after delete, after undelete) {new bpats.ATS_TimesheetTriggerHandler().run();}

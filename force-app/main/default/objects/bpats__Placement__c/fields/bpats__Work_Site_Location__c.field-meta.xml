@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Work_Site_Location__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <label>Work Site Location</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.bpats__Account__c</field>
+            <operation>equals</operation>
+            <valueField>bpats__Work_Site_Location__c.bpats__Account__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>bpats__Work_Site_Location__c</referenceTo>
+    <relationshipLabel>Placements</relationshipLabel>
+    <relationshipName>Placements</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

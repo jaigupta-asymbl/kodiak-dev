@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__All</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>bpats__Section__c</columns>
+    <columns>bpats__Field_Api_Name__c</columns>
+    <columns>bpats__Field_Label__c</columns>
+    <columns>bpats__Field_Type__c</columns>
+    <columns>bpats__Mapped_Field__c</columns>
+    <columns>bpats__Mapped_Object__c</columns>
+    <columns>bpats__Is_Active__c</columns>
+    <columns>bpats__Is_Required__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ASYMBL_Time__Status_Image__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(ASYMBL_Time__Status__c, &quot;Approved&quot;), IMAGE(&quot;/resource/ASYMBL_Time__AsymblTimeResources/AsymblTimeResources/images/Timesheet_Status_Approved.svg&quot;, &quot;Approved&quot;, 30, 70), IF(ISPICKVAL(ASYMBL_Time__Status__c, &quot;Draft&quot;), IMAGE(&quot;/resource/ASYMBL_Time__AsymblTimeResources/AsymblTimeResources/images/Timesheet_Status_Draft.svg&quot;, &quot;Draft&quot;, 30, 70), IF(ISPICKVAL(ASYMBL_Time__Status__c, &quot;New&quot;), IMAGE(&quot;/resource/ASYMBL_Time__AsymblTimeResources/AsymblTimeResources/images/Timesheet_Status_New.svg&quot;, &quot;New&quot;, 30, 70), IF(ISPICKVAL(ASYMBL_Time__Status__c, &quot;Rejected&quot;), IMAGE(&quot;/resource/ASYMBL_Time__AsymblTimeResources/AsymblTimeResources/images/Timesheet_Status_Rejected.svg&quot;, &quot;Rejected&quot;, 30, 70), IF(ISPICKVAL(ASYMBL_Time__Status__c, &quot;Approved by Branch&quot;), IMAGE(&quot;/resource/ASYMBL_Time__AsymblTimeResources/AsymblTimeResources/images/Timesheet_Status_Branch_Approved.svg&quot;, &quot;Approved by Branch&quot;, 30, 120) , IMAGE(&quot;/resource/ASYMBL_Time__AsymblTimeResources/AsymblTimeResources/images/Timesheet_Status_Submitted.svg&quot;, &quot;Submitted for Approval&quot;, 30, 70))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

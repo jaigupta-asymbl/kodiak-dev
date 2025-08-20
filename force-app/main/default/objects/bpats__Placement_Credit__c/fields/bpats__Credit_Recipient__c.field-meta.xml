@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Credit_Recipient__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(TEXT(bpats__ATS_Role_Type__c) ,&apos;User&apos; ), bpats__User__r.FirstName &amp; &quot; &quot; &amp; bpats__User__r.LastName , IF(ISPICKVAL(bpats__ATS_Role_Type__c , &apos;Branch&apos;), bpats__ATS_Branch_Receiving_Credit__c , IF(ISPICKVAL(bpats__ATS_Role_Type__c ,&apos;House&apos; ), &apos;House&apos;, null)))</formula>
+    <label>Credit Recipient</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

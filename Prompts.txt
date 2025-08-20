@@ -1,0 +1,30 @@
+Requirement 2:
+now lets focus on next requirement. Customer wants a UI to upload excel file or also do data entry using   │
+│   UI so they want a tab to enter timeentry data. I need a tab and lwc components on that tab which shows 2   │
+│   tabs "Upload File", "Enter timesheet".. Requirement 2 folder you will get more details also in Change      │
+│   Order Review file. Upload File screen should have a file upload component which should support CSV and     │
+│   Excel file. Fields mapping needs to be handled using custom metadata. Timesheet entry tab will show        │
+│   multiple excel type cells to enter data and in the end Edit, Delete, Save Icons. At the top, it should     │
+│   contain save all button. A lookup field to contact at the beginning to select contact with active          │
+│   placements. As soon as contact is selected, placement column should be populated automatically, and        │
+│   according to placement, it should be able to fectch the data for which timesheet entry is being done.      │
+│   Once the data is entered for all the fields, first it should be able to create timesheet based on the      │
+│   entered data and then should be abole to create respective timeentry record. Let me know if you haev any   │
+│   concern or question.    
+
+Requirement 3:
+So the default timesheet and time entry status must be "Approved" and there needs to be one checkbox on timesheet records "Create Invoice" once that checkbox is true then Invoice and Invoice line item records should start getting created. The detailed requirement is mentioned in folder requirement 3 and Invoicing requirement main folder. Must review Change Order, Requirement from Erin and Kodiak Pivot pdf along with pdf inside requirement 3 folder those are very important.  Invoice records should be created properly  with line items and if in future more timesheet data is created (create invoice is marked true) for the smae account and time period then update existing data. Do not create button for sending invoice for now.. this we will cover in next requirement. Create documentation file as usual and xml file.
+
+Requirement 4: 
+lets move to next requirement i forgot the last conversation but we will  │
+│   see. so the requirement directory is '/Users/jgupta/iMac/Office/Customers/Kodiak/Invoicing Requirement'    │
+│   now rebiew the Change Order file and make sure you understand regarding generating invoice pdf template    │
+│   and email invoice. Then we might need to create a mass action on invoice list view which can send invoice  │
+│   to assoicated additional emails record on billing profile. You also need to follow Timesheet process pdf   │
+│   file as well to understand what other things you have to take care for these 2 buttons. PDF templates      │
+│   are als
+o mentioned in the requirment 4 folder and basically contain 2 types of template. One contain total per diem days and hours at bottom left and other does not. These templates need to be dynamically created from invoice, invoice line item, billing profile, placement, timesheet, timee
+ntry data whatever is absolutely required to use only use that
+
+Requirmeent 5: 
+Review Kodiak Export Invoice Pdf and create a tab and lwc to allow users to export invoices in csv format. Custom metadata should hold the header label and respective api name from where the value needs to picked. values would be coming from invoice and invoice line item. example file is Kodiak Invoice weekly csv file. Only finalized or ready to export invoices should be allowed to export and Once the invoices are exported status should be updated to Exported. Show a toast message once this is successful. Create requirement document, package xml and deploy changes to org.

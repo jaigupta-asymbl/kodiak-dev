@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Types__c</fullName>
+    <description>Dependent field, based on Industry</description>
+    <label>Project Types</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Industry</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Project_Types</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Oil &amp; Gas</controllingFieldValue>
+            <valueName>LNG</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Oil &amp; Gas</controllingFieldValue>
+            <valueName>Refineries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Oil &amp; Gas</controllingFieldValue>
+            <valueName>Storage Tank</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energy</controllingFieldValue>
+            <valueName>Solar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energy</controllingFieldValue>
+            <valueName>Wind</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Energy</controllingFieldValue>
+            <valueName>Hydro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mission Critical</controllingFieldValue>
+            <valueName>Data Centers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mission Critical</controllingFieldValue>
+            <valueName>Healthcare/Hospitals/Pharma</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mission Critical</controllingFieldValue>
+            <valueName>Government</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mission Critical</controllingFieldValue>
+            <valueName>Penitentiaries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial</controllingFieldValue>
+            <valueName>College/University</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial</controllingFieldValue>
+            <valueName>Office Tower/Large Retail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial</controllingFieldValue>
+            <valueName>Distribution Centers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial</controllingFieldValue>
+            <valueName>Hotels/Gaming/Resort/Sports</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Industrial</controllingFieldValue>
+            <valueName>Manufacturing Plants</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Industrial</controllingFieldValue>
+            <valueName>Shutdown/Turnarounds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Industrial</controllingFieldValue>
+            <valueName>Outages</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Industrial</controllingFieldValue>
+            <valueName>Maintenance/Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Utilities</controllingFieldValue>
+            <valueName>Fossil</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Utilities</controllingFieldValue>
+            <valueName>Nuclear</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

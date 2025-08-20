@@ -1,0 +1,42 @@
+.slds-max-medium-table_stacked-horizontal {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.export-progress {
+    background: linear-gradient(90deg, #1589EE 0%, #0070D2 100%);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.status-bar {
+    background: #f8f9fa;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.instruction-box {
+    background: #e8f4fd;
+    border-left: 4px solid #1589EE;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.instruction-box h3 {
+    color: #0070D2;
+    margin-bottom: 8px;
+}
+
+.no-data-container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.selection-info {
+    font-weight: 600;
+    color: #0070D2;
+}

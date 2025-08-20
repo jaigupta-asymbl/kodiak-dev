@@ -1,0 +1,1 @@
+@isTest(SeeAllData=true) public class AST_PlacementTriggerTest { @isTest static void test() { try { bpats__Placement__c obj = [SELECT Id FROM bpats__Placement__c LIMIT 1]; update obj;} catch(Exception ex){}}}

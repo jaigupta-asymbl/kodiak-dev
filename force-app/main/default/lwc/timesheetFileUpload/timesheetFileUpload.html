@@ -1,0 +1,89 @@
+<template>
+    <div class="slds-p-around_medium">
+        <div class="slds-grid slds-wrap slds-gutters">
+            <!-- Client Selection -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-combobox
+                    name="client"
+                    label="Select Client"
+                    value={selectedClient}
+                    placeholder="Choose a client..."
+                    options={clientOptions}
+                    onchange={handleClientChange}
+                    required>
+                </lightning-combobox>
+            </div>
+            
+            <!-- File Upload Instructions -->
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-notify slds-notify_alert slds-alert_info" role="alert">
+                    <h2 class="slds-text-heading_small">Upload Instructions:</h2>
+                    <ul class="slds-list_dotted slds-m-top_x-small">
+                        <li>Supported formats: CSV, Excel (.xlsx, .xls)</li>
+                        <li>Required columns: Employee Name, Week Ending Date</li>
+                        <li>Optional columns: Reg Hours, OT Hours, DT Hours, Sick Hours, PTO Hours, Holiday Hours</li>
+                        <li>Custom fields will be mapped based on client configuration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- File Upload Component -->
+            <div class="slds-col slds-size_1-of-1">
+                <lightning-file-upload
+                    label="Upload Timesheet File"
+                    name="timesheetFile"
+                    accept={acceptedFormats}
+                    record-id=""
+                    onuploadfinished={handleUploadFinished}
+                    multiple="false">
+                </lightning-file-upload>
+            </div>
+            
+            <!-- Process Button -->
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-m-top_medium">
+                    <lightning-button
+                        variant="brand"
+                        label="Process File"
+                        title="Process uploaded file"
+                        onclick={handleProcessFile}
+                        disabled={isProcessing}
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                    
+                    <lightning-button
+                        variant="neutral"
+                        label="Reset"
+                        title="Reset form"
+                        onclick={resetForm}
+                        disabled={isProcessing}>
+                    </lightning-button>
+                </div>
+            </div>
+            
+            <!-- Processing Spinner -->
+            <template if:true={isProcessing}>
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-m-top_medium">
+                        <lightning-spinner alternative-text="Processing file..." size="medium"></lightning-spinner>
+                        <p class="slds-text-align_center slds-m-top_small">Processing timesheet data...</p>
+                    </div>
+                </div>
+            </template>
+            
+            <!-- Upload Status -->
+            <template if:true={uploadedFiles.length}>
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-box slds-m-top_medium">
+                        <h3 class="slds-text-heading_small">Uploaded Files:</h3>
+                        <template for:each={uploadedFiles} for:item="file">
+                            <p key={file.documentId} class="slds-m-top_x-small">
+                                📁 {file.name} ({file.size} bytes)
+                            </p>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

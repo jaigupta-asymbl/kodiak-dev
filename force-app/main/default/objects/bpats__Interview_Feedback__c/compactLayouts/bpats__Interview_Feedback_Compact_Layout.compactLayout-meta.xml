@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Interview_Feedback_Compact_Layout</fullName>
+    <fields>bpats__Interview__c</fields>
+    <fields>bpats__Interview_Date__c</fields>
+    <fields>bpats__Recommended_New__c</fields>
+    <fields>bpats__Candidate__c</fields>
+    <fields>bpats__Interviewer__c</fields>
+    <fields>bpats__Submitted_By__c</fields>
+    <fields>LastModifiedById</fields>
+    <label>Interview Feedback Compact Layout</label>
+</CompactLayout>

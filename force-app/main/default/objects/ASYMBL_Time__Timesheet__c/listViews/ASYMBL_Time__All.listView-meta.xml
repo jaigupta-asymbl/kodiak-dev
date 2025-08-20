@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ASYMBL_Time__All</fullName>
+    <columns>NAME</columns>
+    <columns>ASYMBL_Time__Status__c</columns>
+    <columns>ASYMBL_Time__Candidate__c</columns>
+    <columns>ASYMBL_Time__Bill_Rate__c</columns>
+    <columns>ASYMBL_Time__Pay_Rate__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <label>All</label>
+</ListView>

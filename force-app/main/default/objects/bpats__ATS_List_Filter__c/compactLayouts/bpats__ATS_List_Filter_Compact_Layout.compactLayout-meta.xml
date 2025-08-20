@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__ATS_List_Filter_Compact_Layout</fullName>
+    <fields>bpats__Contact_List__c</fields>
+    <fields>CreatedById</fields>
+    <fields>LastModifiedById</fields>
+    <fields>Name</fields>
+    <fields>OwnerId</fields>
+    <label>ATS List Filter Compact Layout</label>
+</CompactLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <description>Automatically inherits the Billing Profile from the associated Job when a Placement is created</description>
+    <environments>Default</environments>
+    <interviewLabel>Inherit Billing Profile From Job {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Inherit Billing Profile From Job</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Placement_Billing_Profile</name>
+        <label>Update Placement Billing Profile</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Billing_Profile__c</field>
+            <value>
+                <elementReference>$Record.bpats__ATS_Job__r.Billing_Profile__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Placement_Billing_Profile</targetReference>
+        </connector>
+        <filterFormula>AND(
+  NOT(ISBLANK({!$Record.bpats__ATS_Job__c})),
+  ISBLANK({!$Record.Billing_Profile__c}),
+  NOT(ISBLANK({!$Record.bpats__ATS_Job__r.Billing_Profile__c}))
+)</filterFormula>
+        <object>bpats__Placement__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

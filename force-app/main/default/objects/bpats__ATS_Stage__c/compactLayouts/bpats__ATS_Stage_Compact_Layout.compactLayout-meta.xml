@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__ATS_Stage_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>bpats__ATS_Template_Stage__c</fields>
+    <fields>bpats__Stage_Type__c</fields>
+    <fields>bpats__Job__c</fields>
+    <fields>bpats__Sequence__c</fields>
+    <fields>bpats__Block_Multiple_Candidates__c</fields>
+    <label>ATS Stage Compact Layout</label>
+</CompactLayout>

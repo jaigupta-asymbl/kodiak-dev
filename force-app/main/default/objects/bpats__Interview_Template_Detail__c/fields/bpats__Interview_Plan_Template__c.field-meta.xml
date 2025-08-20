@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Interview_Plan_Template__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Interview Plan Template</label>
+    <referenceTo>bpats__Interview_Template__c</referenceTo>
+    <relationshipLabel>Interview Template Details</relationshipLabel>
+    <relationshipName>Interview_Template_Details</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

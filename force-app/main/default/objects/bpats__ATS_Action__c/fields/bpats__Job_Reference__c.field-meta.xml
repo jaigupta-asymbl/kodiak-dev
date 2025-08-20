@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Job_Reference__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Specify the API Name of the field that holds the Job Relationship (Master-Detail or Lookup) from the Object specified in Object Name Field.  Entering the field&apos;s API Name here will pre-populate the data in this field when using the Create a Record action.</inlineHelpText>
+    <label>Job Reference</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

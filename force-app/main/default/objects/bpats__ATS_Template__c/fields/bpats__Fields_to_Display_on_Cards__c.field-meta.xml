@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Fields_to_Display_on_Cards__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Contains fields separated by semi-colon(;) whose values are to be displayed on card in ATS Kanban View.</inlineHelpText>
+    <label>Fields to Display on Cards</label>
+    <length>32768</length>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

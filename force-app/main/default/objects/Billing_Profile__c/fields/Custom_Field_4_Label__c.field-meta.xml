@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Field_4_Label__c</fullName>
+    <description>Display label for Custom Field 4 on invoices and timesheet entry</description>
+    <externalId>false</externalId>
+    <label>Custom Field 4 Label</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

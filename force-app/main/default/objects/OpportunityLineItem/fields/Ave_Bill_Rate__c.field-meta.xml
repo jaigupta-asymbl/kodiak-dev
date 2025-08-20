@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ave_Bill_Rate__c</fullName>
+    <description>Bill rate or ave bill rate based on pay range</description>
+    <label>Ave Bill Rate</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>

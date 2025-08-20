@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Timesheet Entry Manager" icon-name="custom:custom18">
+        <div class="slds-tabs_default">
+            <ul class="slds-tabs_default__nav" role="tablist">
+                <li class={uploadTabClass} title="Upload File" role="presentation">
+                    <a class="slds-tabs_default__link" 
+                       href="javascript:void(0);" 
+                       role="tab" 
+                       data-tab="upload"
+                       onclick={handleTabSelect}
+                       aria-selected={uploadTabActive}
+                       aria-controls="tab-default-1" 
+                       id="tab-default-1__item">
+                        Upload File
+                    </a>
+                </li>
+                <li class={entryTabClass} title="Enter Timesheet" role="presentation">
+                    <a class="slds-tabs_default__link" 
+                       href="javascript:void(0);" 
+                       role="tab" 
+                       data-tab="entry"
+                       onclick={handleTabSelect}
+                       aria-selected={entryTabActive}
+                       aria-controls="tab-default-2" 
+                       id="tab-default-2__item">
+                        Enter Timesheet
+                    </a>
+                </li>
+            </ul>
+            
+            <div id="tab-default-1" class={uploadContentClass} role="tabpanel" aria-labelledby="tab-default-1__item">
+                <c-timesheet-file-upload></c-timesheet-file-upload>
+            </div>
+            
+            <div id="tab-default-2" class={entryContentClass} role="tabpanel" aria-labelledby="tab-default-2__item">
+                <c-timesheet-manual-entry></c-timesheet-manual-entry>
+            </div>
+        </div>
+    </lightning-card>
+</template>

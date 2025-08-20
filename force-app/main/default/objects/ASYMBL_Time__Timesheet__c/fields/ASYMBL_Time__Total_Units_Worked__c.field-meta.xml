@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ASYMBL_Time__Total_Units_Worked__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Total Units Worked</label>
+    <summarizedField>ASYMBL_Time__Time_Entry__c.ASYMBL_Time__Total_Units_Worked__c</summarizedField>
+    <summaryFilterItems>
+        <field>ASYMBL_Time__Time_Entry__c.ASYMBL_Time__Total_Units_Worked__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ASYMBL_Time__Time_Entry__c.ASYMBL_Time__Timesheet__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deployment_Tracker_Tab__c</fullName>
+    <description>format is &quot;4 digit year&quot;_&quot;Week #&quot; i.e. &quot;2025_17&quot; = week 17 of 2025</description>
+    <externalId>false</externalId>
+    <label>Deployment Tracker Tab</label>
+    <length>7</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

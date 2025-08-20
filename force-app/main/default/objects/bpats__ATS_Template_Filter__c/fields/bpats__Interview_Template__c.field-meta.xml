@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Interview_Template__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <label>Interview Template</label>
+    <referenceTo>bpats__Interview_Template__c</referenceTo>
+    <relationshipLabel>ATS Template Filters</relationshipLabel>
+    <relationshipName>ATS_Template_Filters</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

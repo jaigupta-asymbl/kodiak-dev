@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Employment_History_Compact_Layout</fullName>
+    <fields>bpats__Title__c</fields>
+    <fields>OwnerId</fields>
+    <fields>bpats__Org_Name__c</fields>
+    <fields>bpats__Employer_Org_Name__c</fields>
+    <fields>bpats__Employer_Org_Type__c</fields>
+    <fields>bpats__Contact__c</fields>
+    <fields>bpats__Start_Date__c</fields>
+    <fields>bpats__End_Date__c</fields>
+    <fields>CreatedById</fields>
+    <fields>LastModifiedById</fields>
+    <label>Employment History Compact Layout</label>
+</CompactLayout>

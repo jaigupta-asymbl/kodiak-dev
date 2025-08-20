@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__ATS_Template__c</fullName>
+    <deprecated>false</deprecated>
+    <label>ATS Template</label>
+    <referenceTo>bpats__ATS_Template__c</referenceTo>
+    <relationshipLabel>ATS Template Stages</relationshipLabel>
+    <relationshipName>ATS_Template_Stages1</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

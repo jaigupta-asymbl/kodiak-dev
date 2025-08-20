@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Interview_Topic</fullName>
+    <fields>Name</fields>
+    <fields>bpats__Interview_Template__c</fields>
+    <fields>bpats__Interview_Template_Detail__c</fields>
+    <fields>bpats__Sequence__c</fields>
+    <label>Interview Topic</label>
+</CompactLayout>

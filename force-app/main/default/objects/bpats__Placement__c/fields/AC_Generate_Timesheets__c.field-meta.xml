@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AC_Generate_Timesheets__c</fullName>
+    <description>If the Job Type on the Job object contains &quot;Temp&quot; or &quot;Contract&quot;, this box will be checked</description>
+    <formula>contains(text( bpats__ATS_Job__r.bpats__Type__c) , &quot;Temp&quot;) || contains(text( bpats__ATS_Job__r.bpats__Type__c) , &quot;Contract&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Is Job Type &quot;Temp&quot; or &quot;Contract&quot;?</inlineHelpText>
+    <label>Generate Timesheets</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

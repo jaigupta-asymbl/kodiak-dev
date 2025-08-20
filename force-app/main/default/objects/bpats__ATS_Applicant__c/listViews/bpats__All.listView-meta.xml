@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__All</fullName>
+    <columns>NAME</columns>
+    <columns>bpats__ATS_Applicant__c</columns>
+    <columns>bpats__Current_Stage_Date__c</columns>
+    <columns>bpats__Stage__c</columns>
+    <columns>bpats__Job__c</columns>
+    <columns>bpats__Initial_Application_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

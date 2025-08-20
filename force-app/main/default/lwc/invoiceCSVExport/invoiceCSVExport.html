@@ -1,0 +1,126 @@
+<template>
+    <lightning-card title="Invoice CSV Export" icon-name="custom:custom63">
+        <div slot="actions">
+            <lightning-button
+                label="Refresh"
+                icon-name="utility:refresh"
+                onclick={handleRefresh}
+                disabled={refreshButtonDisabled}
+                class="slds-m-right_x-small">
+            </lightning-button>
+            <lightning-button
+                label={exportButtonLabel}
+                variant="brand"
+                icon-name="utility:download"
+                onclick={handleExport}
+                disabled={exportButtonDisabled}>
+            </lightning-button>
+        </div>
+        
+        <!-- Status and Information Bar -->
+        <div class="slds-box slds-box_x-small slds-m-bottom_medium" style="background-color: #f3f2f2;">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-formatted-text 
+                        value={statusMessage}
+                        class="slds-text-body_small slds-text-color_weak">
+                    </lightning-formatted-text>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-text-align_center">
+                    <lightning-formatted-text 
+                        value={selectionMessage}
+                        class="slds-text-body_small slds-text-color_default">
+                    </lightning-formatted-text>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-text-align_right">
+                    <lightning-badge 
+                        label={statusBadge} 
+                        variant="lightest">
+                    </lightning-badge>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-text-align_center slds-m-vertical_large">
+                <lightning-spinner 
+                    alternative-text="Loading invoices..." 
+                    size="medium">
+                </lightning-spinner>
+                <p class="slds-m-top_small">Loading finalized invoices...</p>
+            </div>
+        </template>
+        
+        <!-- Export Progress -->
+        <template if:true={isExporting}>
+            <div class="slds-box slds-box_x-small slds-theme_info slds-m-bottom_medium">
+                <div class="slds-grid slds-grid_align-center">
+                    <lightning-spinner size="small" class="slds-m-right_small"></lightning-spinner>
+                    <span>Exporting {selectedCount} invoices to CSV...</span>
+                </div>
+            </div>
+        </template>
+        
+        <!-- Error Message -->
+        <template if:true={error}>
+            <div class="slds-box slds-box_x-small slds-theme_error slds-m-bottom_medium">
+                <lightning-formatted-text value={error}></lightning-formatted-text>
+            </div>
+        </template>
+        
+        <!-- Instructions -->
+        <template if:true={hasInvoices}>
+            <div class="slds-box slds-box_x-small slds-theme_info slds-m-bottom_medium">
+                <h3 class="slds-text-heading_small slds-m-bottom_x-small">Instructions:</h3>
+                <ul class="slds-list_dotted">
+                    <li>Only invoices with "Finalized" status are shown below</li>
+                    <li>Select one or more invoices using the checkboxes</li>
+                    <li>Click "Export to CSV" to download the selected invoices</li>
+                    <li>After export, invoice status will be updated to "Exported"</li>
+                </ul>
+            </div>
+        </template>
+        
+        <!-- Invoices Data Table -->
+        <template if:true={hasInvoices}>
+            <lightning-datatable
+                data={invoices}
+                columns={columns}
+                key-field="Id"
+                onrowselection={handleRowSelection}
+                selected-rows={selectedInvoices}
+                show-row-number-column
+                resize-column-disabled
+                sorted-direction="desc"
+                sorted-by="Invoice_Date__c"
+                class="slds-max-medium-table_stacked-horizontal">
+            </lightning-datatable>
+        </template>
+        
+        <!-- No Data Message -->
+        <template if:false={hasInvoices}>
+            <template if:false={isLoading}>
+                <div class="slds-text-align_center slds-m-vertical_large">
+                    <lightning-icon 
+                        icon-name="utility:info" 
+                        size="large" 
+                        class="slds-m-bottom_small">
+                    </lightning-icon>
+                    <h3 class="slds-text-heading_medium">No Finalized Invoices Found</h3>
+                    <p class="slds-text-body_regular slds-text-color_weak">
+                        There are currently no invoices with "Finalized" status available for export.
+                    </p>
+                    <lightning-button
+                        label="Refresh"
+                        variant="neutral"
+                        icon-name="utility:refresh"
+                        onclick={handleRefresh}
+                        class="slds-m-top_medium">
+                    </lightning-button>
+                </div>
+            </template>
+        </template>
+        
+    </lightning-card>
+</template>

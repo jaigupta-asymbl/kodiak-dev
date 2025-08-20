@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Offer_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>bpats__Candidate__c</fields>
+    <fields>bpats__Job__c</fields>
+    <fields>bpats__Offer_Status__c</fields>
+    <fields>bpats__Rate_Offered__c</fields>
+    <fields>bpats__Salary_Offered__c</fields>
+    <label>Offer Compact Layout</label>
+</CompactLayout>

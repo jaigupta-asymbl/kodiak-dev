@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Craft_Value__c</fullName>
+    <description>Calculates the value of this craft as part of the entire opportunity</description>
+    <formula>IF( ISPICKVAL( Billing_Type__c , &quot;Hourly&quot;) , 
+
+Ave_Bill_Rate__c * VALUE( CASE( TEXT( Opportunity.Expected_Job_Duration__c ) , 
+      &quot;1 Week&quot;, &quot;1&quot;,
+      &quot;2 Weeks&quot;, &quot;2&quot;,
+      &quot;3 Weeks&quot;, &quot;3&quot;,
+      &quot;1 Month&quot;, &quot;4&quot;,
+      &quot;2 Months&quot;, &quot;8&quot;,
+      &quot;3 Months&quot;, &quot;12&quot;,
+      &quot;6 mo&quot;, &quot;24&quot;,
+      &quot;1 year&quot;, &quot;52&quot;,
+      &quot;52&quot; ) ) 
+*
+
+VALUE(CASE(  TEXT(Opportunity.Expected_Hours_Week__c) , 
+      &quot;40&quot;, &quot;40&quot;, 
+      &quot;50&quot;, &quot;55&quot;,
+      &quot;60&quot;, &quot;70&quot;,
+      &quot;70&quot;, &quot;85&quot;,
+      &quot;80&quot;, &quot;100&quot;,
+      &quot;100&quot;))
+*
+ Quantity, 
+
+ IF( ISPICKVAL( Billing_Type__c , &quot;Fixed Charge&quot;) ,  Ave_Bill_Rate__c , 0) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Project Craft Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Currency</type>
+</CustomField>

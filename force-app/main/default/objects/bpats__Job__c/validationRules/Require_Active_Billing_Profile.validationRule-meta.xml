@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Active_Billing_Profile</fullName>
+    <active>true</active>
+    <description>Requires at least one Active Billing Profile to exist on the Company before creating a Job</description>
+    <errorConditionFormula>AND(
+  NOT(ISBLANK(bpats__Account__c)),
+  ISBLANK(Billing_Profile__c)
+)</errorConditionFormula>
+    <errorDisplayField>Billing_Profile__c</errorDisplayField>
+    <errorMessage>You must have at least one Active Billing Profile on the Company record before creating a Job. Please create an Active Billing Profile first.</errorMessage>
+</ValidationRule>

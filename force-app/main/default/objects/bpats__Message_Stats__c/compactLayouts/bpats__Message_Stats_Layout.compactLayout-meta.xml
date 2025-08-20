@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Message_Stats_Layout</fullName>
+    <fields>bpats__Stats_Type__c</fields>
+    <fields>Name</fields>
+    <fields>bpats__Date__c</fields>
+    <fields>bpats__Blocks__c</fields>
+    <fields>bpats__Bounces__c</fields>
+    <fields>bpats__Clicks__c</fields>
+    <fields>bpats__Opens__c</fields>
+    <fields>bpats__Delivered__c</fields>
+    <fields>bpats__Parent__c</fields>
+    <label>Message Stats Layout</label>
+</CompactLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Code_Type__c</fullName>
+    <description>Indicates if this is a Pay Code or Adjustment code</description>
+    <externalId>false</externalId>
+    <label>Code Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pay Code</fullName>
+                <default>true</default>
+                <label>Pay Code</label>
+            </value>
+            <value>
+                <fullName>Adjustment</fullName>
+                <default>false</default>
+                <label>Adjustment</label>
+            </value>
+            <value>
+                <fullName>Pay Code or Adjustment</fullName>
+                <default>false</default>
+                <label>Pay Code or Adjustment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

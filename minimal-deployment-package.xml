@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <name>CustomObject</name>
+        <members>Timesheet_Field_Mapping__mdt</members>
+    </types>
+    <types>
+        <name>CustomField</name>
+        <members>ASYMBL_Time__Time_Entry__c.Custom_Field_1__c</members>
+        <members>ASYMBL_Time__Time_Entry__c.Custom_Field_2__c</members>
+        <members>ASYMBL_Time__Time_Entry__c.Custom_Field_3__c</members>
+        <members>ASYMBL_Time__Time_Entry__c.Custom_Field_4__c</members>
+        <members>ASYMBL_Time__Time_Entry__c.Custom_Field_5__c</members>
+        <members>Billing_Profile__c.Custom_Field_1_Label__c</members>
+        <members>Billing_Profile__c.Custom_Field_2_Label__c</members>
+        <members>Billing_Profile__c.Custom_Field_3_Label__c</members>
+        <members>Billing_Profile__c.Custom_Field_4_Label__c</members>
+        <members>Billing_Profile__c.Custom_Field_5_Label__c</members>
+    </types>
+    <version>64.0</version>
+</Package>

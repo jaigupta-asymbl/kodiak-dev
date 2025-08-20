@@ -1,0 +1,384 @@
+<template>
+    <div class="slds-p-around_medium">
+        <!-- Contact and Placement Selection -->
+        <div class="slds-grid slds-wrap slds-gutters slds-m-bottom_medium">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-combobox
+                    name="contact"
+                    label="Select Contact"
+                    value={selectedContactId}
+                    placeholder="Choose a contact..."
+                    options={contactOptions}
+                    onchange={handleContactChange}
+                    required>
+                </lightning-combobox>
+            </div>
+            
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-combobox
+                    name="placement"
+                    label="Select Placement"
+                    value={selectedPlacementId}
+                    placeholder="Choose a placement..."
+                    options={placementOptions}
+                    onchange={handlePlacementChange}
+                    disabled={isPlacementDisabled}
+                    required>
+                </lightning-combobox>
+            </div>
+        </div>
+
+        <!-- Save All Button -->
+        <div class="slds-m-bottom_medium">
+            <lightning-button
+                variant="brand"
+                label="Save All"
+                title="Save all time entries"
+                onclick={handleSaveAll}
+                disabled={isSaving}
+                class="slds-m-right_x-small">
+            </lightning-button>
+            
+            <lightning-button
+                variant="neutral"
+                label="Add Row"
+                title="Add new time entry row"
+                onclick={handleAddRow}
+                disabled={isAddRowDisabled}>
+            </lightning-button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-is-relative slds-m-bottom_medium">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Time Entry Grid -->
+        <template if:true={selectedPlacementId}>
+            <div class="slds-scrollable_x">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Date">Date</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Regular Hours">Reg Hours</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Overtime Hours">OT Hours</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Double Time Hours">DT Hours</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Sick Hours">Sick Hours</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="PTO Hours">PTO Hours</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Holiday Hours">Holiday Hours</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title={customField1Label}>{customField1Label}</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title={customField2Label}>{customField2Label}</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title={customField3Label}>{customField3Label}</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title={customField4Label}>{customField4Label}</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title={customField5Label}>{customField5Label}</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Actions">Actions</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={timeEntries} for:item="entry">
+                            <tr key={entry.id}>
+                                <!-- Date -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="date"
+                                            value={entry.date}
+                                            data-row-id={entry.id}
+                                            data-field="date"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.date}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Regular Hours -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="number"
+                                            value={entry.regularHours}
+                                            data-row-id={entry.id}
+                                            data-field="regularHours"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden"
+                                            step="0.25"
+                                            min="0">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.regularHours}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Overtime Hours -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="number"
+                                            value={entry.overtimeHours}
+                                            data-row-id={entry.id}
+                                            data-field="overtimeHours"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden"
+                                            step="0.25"
+                                            min="0">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.overtimeHours}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Double Time Hours -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="number"
+                                            value={entry.doubleTimeHours}
+                                            data-row-id={entry.id}
+                                            data-field="doubleTimeHours"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden"
+                                            step="0.25"
+                                            min="0">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.doubleTimeHours}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Sick Hours -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="number"
+                                            value={entry.sickHours}
+                                            data-row-id={entry.id}
+                                            data-field="sickHours"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden"
+                                            step="0.25"
+                                            min="0">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.sickHours}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- PTO Hours -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="number"
+                                            value={entry.ptoHours}
+                                            data-row-id={entry.id}
+                                            data-field="ptoHours"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden"
+                                            step="0.25"
+                                            min="0">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.ptoHours}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Holiday Hours -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="number"
+                                            value={entry.holidayHours}
+                                            data-row-id={entry.id}
+                                            data-field="holidayHours"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden"
+                                            step="0.25"
+                                            min="0">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.holidayHours}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Custom Fields -->
+                                <td key={entry.customField1Key}>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="text"
+                                            value={entry.customField1}
+                                            data-row-id={entry.id}
+                                            data-field="customField1"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.customField1}</div>
+                                    </template>
+                                </td>
+                                <td key={entry.customField2Key}>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="text"
+                                            value={entry.customField2}
+                                            data-row-id={entry.id}
+                                            data-field="customField2"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.customField2}</div>
+                                    </template>
+                                </td>
+                                <td key={entry.customField3Key}>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="text"
+                                            value={entry.customField3}
+                                            data-row-id={entry.id}
+                                            data-field="customField3"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.customField3}</div>
+                                    </template>
+                                </td>
+                                <td key={entry.customField4Key}>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="text"
+                                            value={entry.customField4}
+                                            data-row-id={entry.id}
+                                            data-field="customField4"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.customField4}</div>
+                                    </template>
+                                </td>
+                                <td key={entry.customField5Key}>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-input
+                                            type="text"
+                                            value={entry.customField5}
+                                            data-row-id={entry.id}
+                                            data-field="customField5"
+                                            onchange={handleFieldChange}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <div class="slds-truncate">{entry.customField5}</div>
+                                    </template>
+                                </td>
+                                
+                                <!-- Actions -->
+                                <td>
+                                    <template if:true={entry.isEditing}>
+                                        <lightning-button-icon
+                                            icon-name="utility:check"
+                                            variant="brand"
+                                            alternative-text="Save"
+                                            title="Save"
+                                            data-row-id={entry.id}
+                                            onclick={handleSaveRow}
+                                            class="slds-m-right_xx-small">
+                                        </lightning-button-icon>
+                                    </template>
+                                    <template if:false={entry.isEditing}>
+                                        <lightning-button-icon
+                                            icon-name="utility:edit"
+                                            variant="neutral"
+                                            alternative-text="Edit"
+                                            title="Edit"
+                                            data-row-id={entry.id}
+                                            onclick={handleEdit}
+                                            class="slds-m-right_xx-small">
+                                        </lightning-button-icon>
+                                    </template>
+                                    
+                                    <lightning-button-icon
+                                        icon-name="utility:delete"
+                                        variant="destructive"
+                                        alternative-text="Delete"
+                                        title="Delete"
+                                        data-row-id={entry.id}
+                                        onclick={handleDeleteRow}>
+                                    </lightning-button-icon>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+
+        <!-- Instructions -->
+        <template if:false={selectedPlacementId}>
+            <div class="slds-notify slds-notify_alert slds-alert_info" role="alert">
+                <h2 class="slds-text-heading_small">Instructions:</h2>
+                <ol class="slds-list_ordered slds-m-top_x-small">
+                    <li>Select a contact with active placements</li>
+                    <li>Choose the placement for timesheet entry</li>
+                    <li>Enter time data in the spreadsheet-like grid</li>
+                    <li>Use Edit/Save buttons for individual rows</li>
+                    <li>Click "Save All" to create timesheet and time entries</li>
+                </ol>
+            </div>
+        </template>
+
+        <!-- Saving Spinner -->
+        <template if:true={isSaving}>
+            <div class="slds-backdrop slds-backdrop_open">
+                <div class="slds-spinner_container">
+                    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                        <span class="slds-assistive-text">Saving timesheet data...</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

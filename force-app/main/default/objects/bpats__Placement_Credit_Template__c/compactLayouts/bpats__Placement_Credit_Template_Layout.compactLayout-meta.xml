@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Placement_Credit_Template_Layout</fullName>
+    <fields>Name</fields>
+    <fields>bpats__Active__c</fields>
+    <fields>bpats__Priority__c</fields>
+    <fields>OwnerId</fields>
+    <fields>bpats__Type__c</fields>
+    <label>Placement Credit Template Layout</label>
+</CompactLayout>

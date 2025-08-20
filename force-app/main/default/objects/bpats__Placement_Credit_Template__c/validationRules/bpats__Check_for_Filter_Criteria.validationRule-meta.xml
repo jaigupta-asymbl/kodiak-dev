@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Check_for_Filter_Criteria</fullName>
+    <active>true</active>
+    <description>If Template Assignment Criteria i.e., Filter Criteria field is Empty then Placement Credit Template should not be in State Active.</description>
+    <errorConditionFormula>AND(
+ OR(
+  ISNULL(bpats__Filter_Criteria__c),
+  ISBLANK(bpats__Filter_Criteria__c)
+ ),
+ bpats__Active__c = true
+)</errorConditionFormula>
+    <errorMessage>To Activate this Template please add a &quot;Template Assignment Criteria&quot;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Job_Duration__c</fullName>
+    <description>Used to help calculate quote - this is the rough estimate of job duration</description>
+    <label>Expected Job Duration</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Expected_Job_Duration</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pay_Bill_Type__c</fullName>
+    <description>Determines if this paycode is Pay Only, Bill Only, or Pay &amp; Bill</description>
+    <externalId>false</externalId>
+    <label>Pay/Bill Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pay Only</fullName>
+                <default>false</default>
+                <description>Transactions with this paycode should NOT be invoiced but should be included in payroll export</description>
+                <label>Pay Only</label>
+            </value>
+            <value>
+                <fullName>Bill Only</fullName>
+                <default>false</default>
+                <description>Transactions with this paycode should NOT be paid but should be included in invoice</description>
+                <label>Bill Only</label>
+            </value>
+            <value>
+                <fullName>Pay &amp; Bill</fullName>
+                <default>true</default>
+                <description>Should expect to both pay and bill this transaction</description>
+                <label>Pay &amp; Bill</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

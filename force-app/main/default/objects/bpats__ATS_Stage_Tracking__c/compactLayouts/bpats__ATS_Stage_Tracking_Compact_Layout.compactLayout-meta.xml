@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__ATS_Stage_Tracking_Compact_Layout</fullName>
+    <fields>bpats__ATS_Applicant__c</fields>
+    <fields>bpats__ATS_Stage__c</fields>
+    <fields>bpats__ATS_Stage_Moved_To__c</fields>
+    <fields>bpats__Start_Date__c</fields>
+    <fields>bpats__End_Date__c</fields>
+    <fields>bpats__Duration_in_Minutes__c</fields>
+    <label>ATS Stage Tracking Compact Layout</label>
+</CompactLayout>

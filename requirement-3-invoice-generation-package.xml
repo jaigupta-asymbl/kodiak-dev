@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <name>CustomField</name>
+        <members>ASYMBL_Time__Timesheet__c.Create_Invoice__c</members>
+        <members>ASYMBL_Time__Timesheet__c.Invoice_Generation_Status__c</members>
+        <members>ASYMBL_Time__Timesheet__c.Invoice_Generation_Error__c</members>
+        <members>Invoice__c.Invoice_Period_Start__c</members>
+        <members>Invoice__c.Invoice_Period_End__c</members>
+        <members>Invoice_Line_Item__c.Timesheet__c</members>
+        <members>Invoice_Line_Item__c.Date_Worked__c</members>
+        <members>Invoice__c.Total_Amount__c</members>
+        <members>Invoice__c.Account__c</members>
+        <members>Invoice_Line_Item__c.Amount__c</members>
+    </types>
+    <types>
+        <name>ApexClass</name>
+        <members>InvoiceGenerationService</members>
+        <members>InvoiceGenerationServiceTest</members>
+        <members>TimesheetInvoiceGenerationBatch</members>
+    </types>
+    <types>
+        <name>ApexTrigger</name>
+        <members>TimesheetInvoiceGenerationTrigger</members>
+    </types>
+    <version>64.0</version>
+</Package>

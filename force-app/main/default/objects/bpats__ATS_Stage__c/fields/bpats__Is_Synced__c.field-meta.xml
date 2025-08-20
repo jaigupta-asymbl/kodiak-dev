@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Is_Synced__c</fullName>
+    <deprecated>false</deprecated>
+    <formula>IF(AND(
+  Name = bpats__ATS_Template_Stage__r.Name, 
+  TEXT(bpats__Stage_Type__c) = TEXT(bpats__ATS_Template_Stage__r.bpats__Stage_Type__c),
+  bpats__Sequence__c = bpats__ATS_Template_Stage__r.bpats__Sequence__c,
+  bpats__Block_Multiple_Candidates__c = bpats__ATS_Template_Stage__r.bpats__Block_Multiple_Candidates__c,
+  bpats__Interview_Stage__c = bpats__ATS_Template_Stage__r.bpats__Interview_Stage__c 
+ ), 
+ true, 
+ false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Synced</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

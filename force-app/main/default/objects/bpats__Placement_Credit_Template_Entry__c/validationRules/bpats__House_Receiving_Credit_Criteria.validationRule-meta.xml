@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__House_Receiving_Credit_Criteria</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ISPICKVAL(bpats__Type__c,&apos;House&apos;), 
+ OR(
+  NOT(ISBLANK(bpats__ATS_Branch_Receiving_Credit__c)),
+  NOT(ISBLANK(bpats__User_Receiving_Credit__c))
+ )
+)</errorConditionFormula>
+    <errorMessage>Neither User nor Branch Receiving Credit should be populated for House type template entry.</errorMessage>
+</ValidationRule>

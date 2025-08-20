@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Check_For_Interview_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT(ISNEW()), ISCHANGED(bpats__Interview_Date__c), PRIORVALUE(bpats__Interview_Date__c) &lt; NOW() )</errorConditionFormula>
+    <errorMessage>Interview Date/Time cannot be changed</errorMessage>
+</ValidationRule>

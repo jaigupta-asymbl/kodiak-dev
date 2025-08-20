@@ -1,0 +1,1 @@
+trigger AST_PlacementTrigger on bpats__Placement__c (before insert, after insert, before update, after update, before delete, after delete, after undelete) {new ASYMBL_Time.AST_PlacementTriggerHandler().run();}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bpats__Email_Activity_Last_Job_Run_Time__c</fullName>
+    <deprecated>false</deprecated>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Email Activity Last Job Run Time</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>
