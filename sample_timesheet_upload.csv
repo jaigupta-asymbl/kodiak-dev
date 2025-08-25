@@ -1,0 +1,16 @@
+Employee Name,Date,RT,OT,DT,Custom Field 1,Custom Field 2,Per Diem Days
+John Smith,2024-01-08,8,0,0,Job Code 123,Manager Johnson,0
+John Smith,2024-01-09,8,2,0,Job Code 123,Manager Johnson,0
+John Smith,2024-01-10,8,0,0,Job Code 123,Manager Johnson,0
+John Smith,2024-01-11,8,1.5,0,Job Code 123,Manager Johnson,0
+John Smith,2024-01-12,8,0,0,Job Code 123,Manager Johnson,0
+Jane Doe,2024-01-08,8,0,0,Project ABC,Supervisor Davis,0
+Jane Doe,2024-01-09,8,0,0,Project ABC,Supervisor Davis,0
+Jane Doe,2024-01-10,8,0,2,Project ABC,Supervisor Davis,0
+Jane Doe,2024-01-11,8,0,0,Project ABC,Supervisor Davis,0
+Jane Doe,2024-01-12,6,0,0,Project ABC,Supervisor Davis,0
+Mike Wilson,2024-01-08,0,0,0,Contract XYZ,Team Lead Brown,1
+Mike Wilson,2024-01-09,8,0,0,Contract XYZ,Team Lead Brown,0
+Mike Wilson,2024-01-10,8,3,0,Contract XYZ,Team Lead Brown,0
+Mike Wilson,2024-01-11,8,0,0,Contract XYZ,Team Lead Brown,0
+Mike Wilson,2024-01-12,8,0,0,Contract XYZ,Team Lead Brown,0

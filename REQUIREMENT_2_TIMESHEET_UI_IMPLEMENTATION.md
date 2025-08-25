@@ -98,17 +98,20 @@ Client B:
 
 **Key Features**:
 - **File Support**: CSV, Excel (.xlsx, .xls)
-- **Client Selection**: Dropdown for client-specific mappings
-- **Upload Instructions**: User guidance panel
+- **Automatic Processing**: No client selection required
+- **Contact Discovery**: Finds contacts automatically from file data
+- **Upload Instructions**: Updated user guidance panel
 - **Progress Tracking**: Loading spinners and status updates
 - **File Validation**: Format and content validation
 
 **User Workflow**:
-1. Select client from dropdown
-2. Upload CSV/Excel file
-3. System processes using configured field mappings
-4. Creates timesheet and time entry records
-5. Displays success/error feedback
+1. Upload CSV/Excel file with required headers
+2. System automatically identifies contacts from file
+3. Finds active placements for each contact
+4. Creates/updates timesheets for Monday-Sunday periods
+5. Creates time entries (skips per diem only records)
+6. Updates approver names on timesheets
+7. Displays success/error feedback with processing summary
 
 #### timesheetManualEntry  
 **Purpose**: Excel-like manual data entry grid
@@ -201,11 +204,13 @@ Client B:
 
 #### File Upload Processing  
 1. **File Reading**: Extracts content from ContentVersion
-2. **Header Mapping**: Maps CSV columns to fields using metadata
-3. **Data Parsing**: Processes each data row
-4. **Contact Matching**: Uses contact name for record association
-5. **Grouping**: Groups entries by contact for timesheet creation
-6. **Bulk Processing**: Creates timesheets and entries in batches
+2. **Header Parsing**: Identifies required columns (Employee Name, Date, RT, OT, DT, Custom Field 1, Custom Field 2)
+3. **Contact Identification**: Finds contacts in system based on names in uploaded file
+4. **Active Placement Resolution**: Locates single active placement for each identified candidate
+5. **Timesheet Management**: Finds or creates timesheet in "New" status for Monday-Sunday period
+6. **Time Entry Creation**: Creates entries only for records with RT/OT/DT hours (skips per diem only)
+7. **Approver Assignment**: Updates timesheet approver name from Custom Field 2 data
+8. **Bulk Processing**: Processes multiple contacts and their time entries in single transaction
 
 ### 6. Error Handling and Validation
 
@@ -268,6 +273,47 @@ Contains all metadata components:
 - **1 FlexiPage**: Timesheet_Entry_Page
 - **3 LWC Components**: Main manager + Upload + Manual entry
 - **2 Apex Classes**: Controller + Test class
+
+## Updated Business Requirements (Version 2.0)
+
+### New Processing Logic
+1. **Contact Identification**: System finds contacts automatically from uploaded file data (no client selection required)
+2. **Active Placement Resolution**: Identifies single active placement per candidate based on system assumptions
+3. **Timesheet Status Management**: Creates/updates timesheets in "New" status for Monday-Sunday periods
+4. **Selective Processing**: Skips records containing only per diem data (no RT/OT/DT hours)
+5. **Approver Integration**: Extracts and updates approver names on timesheets from Custom Field 2
+
+### Key Assumptions
+1. **One Active Placement**: Each candidate has exactly one active placement at any given time
+2. **Per Diem Management**: Per diem amounts stored on Placement, per diem days tracked on Timesheet
+3. **Required Headers**: File must contain "Custom Field 1" and "Custom Field 2" as exact column headers
+4. **Monday-Sunday Periods**: All timesheet periods follow Monday to Sunday weekly cycles
+5. **Approver from Data**: Approver name extracted from Custom Field 2 values in uploaded data
+
+### File Format Requirements
+- **Required Columns**: Employee Name (or Name), Date, Custom Field 1, Custom Field 2
+- **Time Columns**: RT (Regular Time), OT (Overtime), DT (Double Time)
+- **Validation Rules**: Records must contain at least one non-zero time value (RT/OT/DT)
+- **Format Support**: CSV, Excel (.xlsx, .xls) formats accepted
+
+### Processing Workflow
+```
+File Upload
+    ↓
+Header Validation (Employee Name, Date, RT/OT/DT, Custom Fields)
+    ↓
+Contact Identification (Name matching in system)
+    ↓
+Active Placement Resolution (One per candidate)
+    ↓
+Timesheet Management (New status, Monday-Sunday periods)
+    ↓
+Time Entry Creation (Skip per diem only records)
+    ↓
+Approver Assignment (From Custom Field 2)
+    ↓
+Success/Error Feedback
+```
 
 ## Business Value and Benefits
 
@@ -345,7 +391,38 @@ Contains all metadata components:
 
 ---
 
+## Sample File Format
+
+A sample CSV file (`sample_timesheet_upload.csv`) has been created demonstrating the required format:
+
+### Sample Data Structure
+```csv
+Employee Name,Date,RT,OT,DT,Custom Field 1,Custom Field 2,Per Diem Days
+John Smith,2024-01-08,8,0,0,Job Code 123,Manager Johnson,0
+John Smith,2024-01-09,8,2,0,Job Code 123,Manager Johnson,0
+Jane Doe,2024-01-08,8,0,0,Project ABC,Supervisor Davis,0
+Mike Wilson,2024-01-08,0,0,0,Contract XYZ,Team Lead Brown,1
+```
+
+### Sample File Notes
+- **John Smith**: Regular entries with RT/OT hours - will be processed
+- **Jane Doe**: Standard entries with RT hours - will be processed  
+- **Mike Wilson (row 4)**: Per diem only record (no RT/OT/DT) - will be SKIPPED
+- **Custom Field 1**: Contains job codes/project identifiers
+- **Custom Field 2**: Contains approver names (will update Timesheet.Approver_Name__c)
+- **Date Range**: Monday (Jan 8) to Friday (Jan 12, 2024) - creates Monday-Sunday timesheet period
+
+### Processing Results
+- System identifies contacts "John Smith", "Jane Doe", "Mike Wilson"
+- Finds active placements for each identified contact
+- Creates timesheets for week of Jan 8-14, 2024 (Monday-Sunday)
+- Skips Mike Wilson's per diem only record on Jan 8
+- Sets approver names: "Manager Johnson", "Supervisor Davis", "Team Lead Brown"
+
+---
+
 *Implementation completed on: August 15, 2025*  
+*Updated on: August 25, 2025 (Version 2.0)*
 *Total Components Created: 16*  
 *Estimated Development Time: 72+ hours*  
 *Test Coverage: 85%+*

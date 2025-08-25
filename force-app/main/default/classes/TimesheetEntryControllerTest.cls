@@ -136,8 +136,7 @@ public class TimesheetEntryControllerTest {
         
         Test.startTest();
         TimesheetEntryController.TimesheetProcessResult result = TimesheetEntryController.processTimesheetFile(
-            cv.Id, 
-            'Test Client'
+            cv.Id
         );
         Test.stopTest();
         
